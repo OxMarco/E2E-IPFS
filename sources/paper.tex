@@ -1,0 +1,220 @@
+\documentclass[a4paper,11 pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{}
+\usepackage{amsmath, amssymb, amsthm, graphicx}
+\usepackage[dvipsnames]{xcolor}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{problem}{Problem}
+
+\newcommand{\tb}{\verb|TKB|}
+\newcommand{\ta}{\verb|TKA|}
+
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Large
+        \textbf{ Decentralised E2E-Encrypted Storage of Banking Data}
+
+        \vspace{1cm}
+        \Large
+        {\it A secure and redundant storage solution of banking and card transactional data leveraging OrbitDB and End-to-End encryption for increased transparency and data ownership}
+
+        \vspace{1.5cm}
+        {\normalsize V1.0.0 - \today}
+        \vspace{1.0cm}
+
+        \begin{abstract}        
+        In the modern digital era, the secure storage of sensitive data, such as bank and card transactional data, is of paramount importance. Traditional centralised databases are susceptible to breaches and unauthorised access, highlighting the need for decentralised and secure storage solutions. This paper presents a novel approach that utilises OrbitDB, a distributed peer-to-peer database, to store bank and card transactional data securely. By leveraging OrbitDB's log feature and incorporating end-to-end encryption, the proposed system ensures data integrity, confidentiality, and fault tolerance while providing efficient access and retrieval capabilities.       
+        \end{abstract}
+            
+    \end{center}
+\tableofcontents
+\end{titlepage}
+
+\section{Introduction}
+The secure storage of bank and card transactional data is crucial to maintaining the trust and privacy of individuals and organisations. Existing centralised database systems pose several challenges, including a single point of failure and susceptibility to malicious attacks. Decentralised storage solutions, such as OrbitDB, provide an alternative approach by distributing data across multiple peers in a peer-to-peer network. This paper proposes leveraging OrbitDB's log feature combined with end-to-end encryption to address the security concerns associated with storing sensitive transactional data.
+
+\section{Architecture}
+The proposed system architecture outlines the components and their interactions to achieve secure storage of bank and card transactional data. The architecture incorporates OrbitDB as the underlying storage layer, leveraging the log data structure for efficient append-only operations. End-to-end encryption techniques are employed to ensure data confidentiality, even in the presence of malicious peers.
+
+The proposed system architecture for the OrbitDB E2E-encrypted banking data storage solution combines the strengths of OrbitDB, IPFS, and end-to-end encryption to create a decentralised and secure platform for storing banking data. The key components and benefits of this architecture include:
+
+Decentralised Data Storage:
+Utilises IPFS as the underlying storage layer, distributing data across multiple peers in a peer-to-peer network.
+Eliminates the need for a centralised server, reducing single points of failure and enhancing fault tolerance.
+Data is replicated and synchronised across network nodes, ensuring data availability even if some nodes are offline or compromised.
+OrbitDB Log for Transactional Data:
+Uses OrbitDB's log data structure, which provides an append-only log of transactions.
+Enables efficient and tamper-evident storage of bank and card transactional data.
+Supports data querying and retrieval through iterators, allowing efficient access to transaction history.
+End-to-End Encryption:
+Employs end-to-end encryption to protect the confidentiality and privacy of sensitive banking data.
+Encrypts data before storing it in the database and decrypts it when accessed by authorised parties.
+Ensures that only authorised individuals with the encryption key can access and view the stored data.
+Data Ownership and Control:
+Gives individuals full ownership and control over their banking data.
+Allows users to store their transactional data directly on their devices or on trusted nodes in the network.
+Eliminates reliance on centralised third-party servers, reducing the risk of data breaches and unauthorised access.
+Enhanced Security and Privacy:
+Provides robust security mechanisms through encryption, making it difficult for unauthorised parties to access and decipher sensitive data.
+Protects against unauthorised modifications to transactional data by maintaining a tamper-evident log structure.
+Supports granular access control, ensuring that only authorised parties can read or modify the stored data.
+Data Integrity and Auditability:
+Utilises IPFS's content-addressable nature to ensure data integrity.
+Each transaction is identified by its content hash, allowing easy verification of data authenticity and preventing data tampering.
+Enables auditing capabilities by maintaining a comprehensive transaction log that can be audited for compliance or investigative purposes.
+Comparing the proposed system architecture to a traditional database replicated on cloud servers, the following benefits stand out:
+
+Decentralisation: The system eliminates the reliance on a central server, distributing the data across multiple nodes in a peer-to-peer network. This reduces the risk of a single point of failure and enhances fault tolerance.
+Data Ownership: Users have full ownership and control over their banking data, as it can be stored directly on their devices or trusted nodes. This gives individuals greater control over their personal information.
+Enhanced Security: End-to-end encryption ensures the confidentiality of sensitive banking data, protecting it from unauthorised access. The tamper-evident log structure and data integrity mechanisms enhance data security and prevent unauthorised modifications.
+Privacy: By eliminating centralised servers and storing data in a decentralised manner, the system reduces the exposure of personal data to third-party entities, enhancing privacy protection.
+Auditability: The comprehensive transaction log and content-addressable nature of IPFS enable easy verification of data authenticity and provide a robust audit trail for compliance and investigative purposes.
+In summary, the proposed system architecture for the OrbitDB E2E encrypted banking data storage solution leverages decentralisation, end-to-end encryption, and data ownership to create a secure and privacy-respecting platform. By combining the strengths of OrbitDB, IPFS, and encryption, the architecture offers enhanced security, data control, and auditability compared to traditional databases replicated on cloud servers.
+
+\subsection{Why OrbitDB and IPFS}
+IPFS (InterPlanetary File System) is a distributed peer-to-peer protocol designed to create a decentralised and efficient method for storing and accessing files on the internet. IPFS introduces a content-addressable file system, where files are identified by their content rather than their location. It utilises a distributed hash table (DHT) to enable efficient file retrieval and provides data replication and fault tolerance. IPFS aims to revolutionize web architecture by enabling permanent, decentralised, and censorship-resistant storage and sharing of data.
+
+IPFS was first proposed by Juan Benet in 2014 as an alternative to the traditional client-server model of the web. It was built upon existing technologies such as DHT, MerkleDAG, and BitSwap. Since then, it has gained significant attention and adoption in various domains, including decentralised applications (dApps), distributed file storage, and content delivery networks (CDNs). IPFS has a vibrant open-source community and continues to evolve, with ongoing research and development to enhance its scalability, performance, and usability.
+
+OrbitDB, on the other hand, is a distributed peer-to-peer database built on top of IPFS. It provides a simple and efficient way to store and query data in a decentralised manner. OrbitDB offers different data structures, including log, key-value, and document stores, each suited for specific use cases. It utilises IPFS as its underlying storage and communication layer, enabling data replication and synchronisation across multiple peers.
+
+OrbitDB was created by the developers at Haja Networks and was first introduced in 2017. It was designed to address the challenges of decentralised application development, providing a robust and scalable solution for managing distributed data. OrbitDB leverages IPFS's content-addressable nature and its distributed network infrastructure to provide data integrity, fault tolerance, and efficient data retrieval. It has gained popularity among developers working on decentralised applications and is continuously being improved through community contributions and ongoing research.
+
+Together, IPFS and OrbitDB offer a powerful combination for decentralised storage and database capabilities, enabling secure, immutable, and censorship-resistant data storage and retrieval in a distributed network environment.
+
+\subsection{Data Encryption}
+To preserve the privacy of sensitive transactional data, this section discusses the encryption and decryption processes. It explores various encryption algorithms suitable for end-to-end encryption, including symmetric and asymmetric encryption. Additionally, key management techniques and secure key exchange protocols are presented to ensure secure access to encrypted data.
+
+\section{Security and Privacy Considerations}
+Ensuring General Data Protection Regulation (GDPR) compliance within a data storage solution on IPFS while leveraging end-to-end encryption requires a careful approach that aligns with the regulation's core principles of data protection and privacy. By adopting a comprehensive strategy, it is possible to achieve GDPR compliance within an IPFS-based system.
+
+First and foremost, incorporating end-to-end encryption throughout the data storage process plays a crucial role. This approach ensures that data remains confidential and inaccessible to unauthorised individuals, even within the decentralised IPFS network. Employing robust encryption algorithms and securely managing encryption keys are essential elements to guarantee the integrity and confidentiality of personal data.
+
+To comply with GDPR requirements, it is necessary to implement mechanisms that grant individuals control over their data. This can be achieved by enabling data subjects to exercise their rights, such as the right to access, rectify, and erase their personal information. Proper metadata management and indexing within the IPFS system, combined with appropriate access controls, facilitate the identification and handling of data subjects' requests efficiently.
+
+Additionally, GDPR requires data controllers to maintain records of processing activities. In an IPFS-based solution, this involves keeping track of data operations, such as data uploads, modifications, and access events. By employing a carefully designed logging mechanism within the system, it becomes possible to track and document these activities, ensuring compliance with the record-keeping obligations mandated by GDPR.
+
+Furthermore, implementing privacy-enhancing techniques, such as data minimisation and pseudonymisation, can aid GDPR compliance. By reducing the amount of personal data stored and processed, and replacing identifying information with pseudonyms whenever feasible, the risk associated with processing personal data within the IPFS network can be significantly mitigated.
+
+Lastly, it is imperative to conduct regular privacy impact assessments and ensure ongoing monitoring of the data storage solution. By identifying and addressing potential privacy risks and vulnerabilities, system operators can demonstrate their commitment to maintaining GDPR compliance within the IPFS-based infrastructure.
+
+\section{Implementation}
+This section provides implementation details, including the choice of programming languages, libraries, and frameworks used to develop the secure storage system. It discusses the integration of OrbitDB into the system and the implementation of end-to-end encryption techniques.
+
+\subsection{Example}
+
+\begin{verbatim}
+const IPFS = require('ipfs');
+const OrbitDB = require('orbit-db');
+
+// Create an IPFS instance
+const ipfs = await IPFS.create();
+
+// Create an OrbitDB instance
+const orbitdb = await OrbitDB.createInstance(ipfs);
+
+// Create a database
+const db = await orbitdb.log('bank_transactions', {
+  // Set the access controller to restrict write access to the backend
+  accessController: {
+    write: [orbitdb.key], // Allow write access only from the backend
+  },
+  // Enable encryption
+  create: true,
+  // Specify encryption options (e.g., using a secret key)
+  options: {
+    accessController: {
+      type: 'custom',
+      customAccessController: {
+        // Use end-to-end encryption with a secret key
+        encrypt: async (data) => {
+          // Encrypt the data using your encryption algorithm of choice
+          const encryptedData = encryptFunction(data, secretKey);
+          return encryptedData;
+        },
+        // Decrypt the data using the secret key
+        decrypt: async (data) => {
+          const decryptedData = decryptFunction(data, secretKey);
+          return decryptedData;
+        },
+      },
+    },
+  },
+});
+
+// Open the database
+await db.load();
+
+// Add a transaction to the database
+const transaction = {
+  timestamp: Date.now(),
+  amount: 100.0,
+  description: 'Payment',
+  // Include other transaction details as needed
+};
+
+await db.add(transaction);
+
+// Retrieve all transactions from the database
+const allTransactions = db.iterator({ limit: -1 }).collect();
+
+console.log(allTransactions);
+
+// Close the database and IPFS instance when finished
+await db.close();
+await orbitdb.stop();
+await ipfs.stop();
+\end{verbatim}
+
+\subsection{Performance Evaluation}
+To assess the practicality of the proposed system, a performance evaluation is conducted. This section discusses the metrics used to measure the system's efficiency, such as latency, throughput, and scalability. Comparative analysis against traditional centralised databases and other decentralised storage solutions is performed to highlight the advantages of the proposed approach.
+
+While the proposed system architecture for the OrbitDB E2E encrypted banking data storage solution offers numerous benefits in terms of decentralisation, data ownership, and security, it is important to consider potential performance drawbacks when compared to traditional centralised solutions. These drawbacks include:
+
+Network Latency: In a decentralised peer-to-peer network, data retrieval and storage operations may experience increased network latency compared to centralised solutions. As data is distributed across multiple nodes, each operation requires communication and coordination with multiple peers, potentially leading to slower response times.
+Scalability Challenges: The decentralised nature of the system can introduce scalability challenges. As the number of participants and data volume grows, the network may experience increased congestion and reduced performance. Maintaining consistency and synchronisation across a large number of nodes can be resource-intensive and may impact system scalability.
+Reliance on Peer Availability: The availability of data depends on the participation and availability of network peers. If a significant number of nodes go offline or become inaccessible, it may affect data retrieval and storage capabilities. Ensuring a sufficient number of reliable and accessible peers becomes crucial for maintaining system availability.
+Storage Redundancy: Storing data in a decentralised manner across multiple nodes inherently introduces redundancy to ensure fault tolerance and data availability. While redundancy enhances data resilience, it also requires additional storage resources compared to centralised solutions that can allocate a specific amount of storage capacity.
+Initial Data Synchronisation: When new participants join the network or when recovering from network disruptions, ensuring initial data synchronisation across peers can be time-consuming. The process of synchronising the entire transaction history or retrieving a significant amount of data from multiple nodes may lead to delays and impact the overall performance.
+Computational Overhead: End-to-end encryption introduces additional computational overhead, as data needs to be encrypted before storage and decrypted during retrieval. These cryptographic operations can consume more computational resources compared to traditional centralised systems, potentially impacting processing speed and system performance.
+
+\section{Conclusions and Future Work}
+The discussion section analyses the strengths and limitations of the proposed system. It explores potential areas for improvement and future research, such as exploring additional data replication strategies, optimising encryption techniques, and integrating advanced consensus mechanisms for data synchronisation.
+
+This paper presents a secure storage solution for bank and card transactional data using OrbitDB with end-to-end encryption leveraging the OrbitDB log feature. By combining decentralised storage, cryptographic techniques, and efficient append-only logs, the proposed system ensures data integrity, confidentiality, and fault tolerance. The system offers a viable alternative to traditional centralised databases, mitigating security risks and enhancing privacy in sensitive data storage environments.
+
+\begin{thebibliography}{9}
+\bibitem{benet2014ipfs}
+Benet, J. (2014). IPFS - Content Addressed, Versioned, P2P File System. arXiv preprint arXiv:1407.3561.
+
+\bibitem{benet2017ipfs}
+Benet, J. (2017). IPFS - Towards Internet 3.0. In Companion Proceedings of the 2017 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity (SPLASH Companion) (pp. 6-7).
+
+\bibitem{haja2018orbitdb}
+Haja Networks. (2018). OrbitDB: A Distributed Peer-to-Peer Database.
+
+\bibitem{gdpr}
+Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119/1, 4 May 2016.
+
+\bibitem{encryptiongdpr}
+Article 32 of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation). Official Journal of the European Union, L 119/1, 4 May 2016.
+
+\bibitem{erasurecoding}
+Plank, J. S. (2005). A Tutorial on Reed-Solomon Coding for Fault-Tolerance in RAID-like Systems.
+
+\end{thebibliography}
+
+
+\end{document}
